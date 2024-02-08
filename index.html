@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Variables de distancia y nivel</title>
+</head>
+<body>
+  <form id="formulario">
+    <label for="distancia_inicial">Distancia inicial:</label>
+    <input type="number" id="distancia_inicial" value="0" readonly><br><br>
+
+    <label for="distancia_final">Distancia final:</label>
+    <input type="number" id="distancia_final"><br><br>
+
+    <label for="nivel_inicial">Nivel inicial:</label>
+    <input type="number" id="nivel_inicial"><br><br>
+
+    <label for="nivel_final">Nivel final:</label>
+    <input type="number" id="nivel_final"><br><br>
+
+    <label for="nueva_distancia">Nueva distancia:</label>
+    <input type="number" id="nueva_distancia"><br><br>
+
+    <button type="button" onclick="calcularNuevoNivel()">Calcular nuevo nivel</button><br><br>
+
+    <label for="nuevo_nivel">Nuevo nivel:</label>
+    <output id="nuevo_nivel"></output><br><br>
+  </form>
+  <style>
+     body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    
+  }
+  </style>
+
+  <script>
+    function calcularNuevoNivel() {
+      var distancia_inicial = parseFloat(document.getElementById('distancia_inicial').value);
+      var distancia_final = parseFloat(document.getElementById('distancia_final').value);
+      var nivel_inicial = parseFloat(document.getElementById('nivel_inicial').value);
+      var nivel_final = parseFloat(document.getElementById('nivel_final').value);
+      var nueva_distancia = parseFloat(document.getElementById('nueva_distancia').value);
+
+      var nuevo_nivel = nivel_inicial + ((nivel_final - nivel_inicial) / distancia_final) * nueva_distancia;
+      nuevo_nivel = nuevo_nivel.toFixed(3); // Limitar a 3 decimales
+      document.getElementById('nuevo_nivel').textContent = nuevo_nivel;
+    }
+  </script>
+</body>
+</html>
+
+
+ 
