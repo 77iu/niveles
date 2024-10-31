@@ -3,216 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="visualizador.css">
   <title>Variables de distancia y nivel</title>
 </head>
 <body>
-   
+   <header>
+    <h3>Calculadora de Niveles por Distancia</h1>
+   </header>
 <div class="container">
+  
+  <p>En el trabajo de campo, la precisión y rapidez son esenciales. Esta herramienta te permite calcular el nivel correspondiente a cualquier distancia entre dos puntos, generando una rasante precisa. Además de trabajar dentro de los límites establecidos, puedes calcular niveles para distancias anteriores a la inicial o posteriores a la final, lo que la hace ideal para obras que requieren soluciones inmediatas o mediciones particulares. Solo necesitas ingresar las distancias y niveles iniciales y finales, y la herramienta se encargará del resto.</p>
   <div class="headline">
-    <h1>Calculadora de Niveles por Distancia</h1>
-    <p>En el trabajo de campo, la precisión y rapidez son esenciales. Esta herramienta te permite calcular el nivel correspondiente a cualquier distancia entre dos puntos, generando una rasante precisa. Además de trabajar dentro de los límites establecidos, puedes calcular niveles para distancias anteriores a la inicial o posteriores a la final, lo que la hace ideal para obras que requieren soluciones inmediatas o mediciones particulares. Solo necesitas ingresar las distancias y niveles iniciales y finales, y la herramienta se encargará del resto.</p>
+    <div class="visualizador">
+<h2>Usos...</h2>
+     
+        <div class="scene">
+            
+            <div class="box" id="box">
+                <div class="card card01" >
+                  <h4>Nivelación en barrios</h4>
+                  <p>Para establecer alturas precisas en el desarrollo de nuevos barrios, asegurando uniformidad en el terreno.</p>
+                </div>
+                <div class="card card02" >
+                  <h4>Red de cloacas</h4>
+                  <p>Cálculo de niveles precisos para la correcta pendiente en tuberías de aguas residuales.</p>
+                </div>
+                <div class="card card03" >
+                  <h4>Drenaje pluvial en calles</h4>
+                  <p>Garantiza el nivel adecuado para el flujo de aguas pluviales, evitando inundaciones en zonas urbanas.</p>
+                </div>
+                <div class="card card04" >
+                  <h4>Diseño de parques y áreas verdes</h4>
+                  <p>Ayuda a nivelar el terreno en espacios recreativos, facilitando la construcción de caminos y áreas de césped uniforme.</p>
+                </div>
+                <div class="card card05" >
+                  <h4>Construcción de carreteras y caminos rurales</h4>
+                  <p>Para el ajuste de niveles que aseguran pendientes y rasantes necesarias en tramos de carretera.</p>
+                </div>
+                <div class="card card06" >
+                  <h4>Trazado de vías ferroviarias</h4>
+                  <p>Permite calcular niveles para establecer la rasante en vías férreas, fundamental para la estabilidad del recorrido.</p>
+                </div>
+            </div>
+        </div>
+    
+        <div class="buttons">
+            <button id="left-button"></button>
+            <button id="right-button"></button>
+        </div>
+    </div>
+    <form id="formulario">
+      <label for="distancia_inicial">Distancia inicial:</label>
+      <input type="number" id="distancia_inicial" value="0" readonly>
+  
+      <label for="distancia_final">Distancia final:</label>
+      <input type="number" id="distancia_final">
+  
+      <label for="nivel_inicial">Nivel inicial:</label>
+      <input type="number" id="nivel_inicial">
+  
+      <label for="nivel_final">Nivel final:</label>
+      <input type="number" id="nivel_final">
+  
+      <label for="nueva_distancia">Nueva distancia:</label>
+      <input type="number" id="nueva_distancia">
+  
+      <button type="button" onclick="calcularNuevoNivel()">Nuevo nivel</button>
+  
+      <label for="nuevo_nivel"></label>
+      <output class="dato" id="nuevo_nivel"></output>
+      <!-- <h2>Mati pagate la coca</h2> -->
+    </form>
    </div>
-  <form id="formulario">
-    <label for="distancia_inicial">Distancia inicial:</label>
-    <input type="number" id="distancia_inicial" value="0" readonly>
-
-    <label for="distancia_final">Distancia final:</label>
-    <input type="number" id="distancia_final">
-
-    <label for="nivel_inicial">Nivel inicial:</label>
-    <input type="number" id="nivel_inicial">
-
-    <label for="nivel_final">Nivel final:</label>
-    <input type="number" id="nivel_final">
-
-    <label for="nueva_distancia">Nueva distancia:</label>
-    <input type="number" id="nueva_distancia">
-
-    <button type="button" onclick="calcularNuevoNivel()">Nuevo nivel</button>
-
-    <label for="nuevo_nivel"></label>
-    <output class="dato" id="nuevo_nivel"></output>
-    <!-- <h2>Mati pagate la coca</h2> -->
-  </form>
+  
 </div>
   <footer>
     <p>Creado por <span>Miguel Cortez</span> 2023</p>
   </footer>
-  <style>
-     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
-    
-    *{
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-size: 20px;
-      font-family: "Poppins", sans-serif;
-      letter-spacing: 2px;
-    }
-    body{
-      max-width: 1920px;
-      min-height:100vh ;
-margin: auto;
-position: relative;
-    } 
-    
-    form,
-    .container{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .container{
-     
-      flex-wrap: wrap;
-    }
-    .headline{
-      /* max-width: 700px;
-      width: 100%; */
-      /* padding: 0 10px 50px 10px; */
-      flex-direction: column;
-      line-height: 200%;
-      letter-spacing: 1px;
-    }
-    .headline h1{
-      background-color: black;
-      color: white;
-      padding: 50px 10px 10px 10px;
-      font-size: 25px;
-    }
-    .headline p{
-      padding: 10px;
-    }
-    form{
-      max-width: 425px;
-      width: 100%;
-
-      /* height: 100vh; */
-      background-color: blanchedalmond;
-      flex-direction: column;
-      gap: 2px;
-      padding: 10px 1px;
-  margin-bottom: 80px;
-    }
-    form button{
-      width: 200px;
-      height: 80px;
-      padding: 15px 20px;
-      margin-top: 10px;
-        background-color: transparent;
-      border: unset;
-      /* clip-path: polygon(0%50%,15%0%,85%0%,100%50%,85%100%,15%100%); */
-      transition:0.3s ease ;
-      font-weight: 600;
-      position: relative;
-    }
-    form button:after{
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      clip-path:path("M20 0 Q180 0 180 0 200 40 200 40 180 80 180 80 20 80 20 80 0 40 0 40 20 0 20 0 22 5 22 5 5 40 5 40 22 75 22 75 178 75 178 75 195 40 195 40 178 5 178 5 22 5 22 5 20 0 20 0") ;
-      background-color: black;
-      transition:0.3s ease ;
-    }
-     form button:hover{
-      color: blue;
-    }
-    form button:hover:after{
-      background-color: blue;
-    }
-    input{
-      border: unset;
-      padding: 10px 20px;
-      text-align: center;
-      border-radius: 25px;
-    }
-    output{
-      padding-top: 20px;
-      padding: 10px;
-     
-    }
-    .dato{
-      width: 100%;
-      height:50px;
-      font-weight: 600;
-      color: blue;
-      text-align: center;
-    }
- 
-    h2{
-      text-align: center;
-    }
-    footer{
-      min-width: 100%;
-      height: 80px;
-      background-color: black;
-      position: absolute;
-      bottom: 0;
-     
-    }
-    footer p{
-      color: white;
-      text-align: center;
-      line-height: 80px;
-      font-weight: 300;
-    
-    }
-    footer p span{
-      font-weight: 600;
-    }
-    .dato {
-      width: 100%;
-      height: 50px;
-      font-weight: 600;
-      text-align: center;
-      clip-path: polygon(0%0%,100%0%,100%0%,0%0%);
-    }
 
 
-    .dato.error {
-      color: red;
-      animation: dato 1s ease forwards;
-    }
+ <script src="index.js"></script>
 
-    .dato.resultado {
-      color: blue;
-      animation: dato 0.5s ease forwards;
-    }
-    @keyframes dato{
-  0%{clip-path: polygon(0%0%,100%0%,100%0%,0%0%);}
-  100%{clip-path: polygon(0%0%,100%0%,100%100%,0%100%);}
-}
-  </style>
-
-  <script>
-     function calcularNuevoNivel() {
-      var distancia_inicial = parseFloat(document.getElementById('distancia_inicial').value);
-      var distancia_final = parseFloat(document.getElementById('distancia_final').value);
-      var nivel_inicial = parseFloat(document.getElementById('nivel_inicial').value);
-      var nivel_final = parseFloat(document.getElementById('nivel_final').value);
-      var nueva_distancia = parseFloat(document.getElementById('nueva_distancia').value);
-      var nuevo_nivel_output = document.getElementById('nuevo_nivel');
-
-      // Verificar si falta algún valor
-      if (isNaN(distancia_inicial) || isNaN(distancia_final) || isNaN(nivel_inicial) || isNaN(nivel_final) || isNaN(nueva_distancia)) {
-        nuevo_nivel_output.textContent = "Falta uno o más valores";
-        nuevo_nivel_output.classList.add('error');
-        nuevo_nivel_output.classList.remove('resultado');
-        return;
-      }
-
-      // Calcular el nuevo nivel
-      var nuevo_nivel = nivel_inicial + ((nivel_final - nivel_inicial) / distancia_final) * nueva_distancia;
-      nuevo_nivel = nuevo_nivel.toFixed(3); // Limitar a 3 decimales
-
-      // Mostrar el resultado en azul
-      nuevo_nivel_output.textContent = nuevo_nivel;
-      nuevo_nivel_output.classList.add('resultado');
-      nuevo_nivel_output.classList.remove('error');
-    }
-  </script>
 </body>
 </html>
