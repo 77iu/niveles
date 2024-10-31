@@ -82,6 +82,7 @@ width: auto;
  font-weight: 600;
  position: relative;
  color: white;
+ font-size: 16px;
 }
 .headline form button:after{
  content: "";
