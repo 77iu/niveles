@@ -24,22 +24,6 @@ function calcularNuevoNivel() {
  nuevo_nivel_output.classList.add('resultado');
  nuevo_nivel_output.classList.remove('error');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const box = document.querySelector('.box');
 const leftButton = document.getElementById('left-button');
 const rightButton = document.getElementById('right-button');
@@ -55,25 +39,3 @@ rightButton.addEventListener('click', () => {
    rotationAngle += 60;
    box.style.transform = `translateZ(-400px) rotateY(${rotationAngle}deg)`;
 });
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-box.addEventListener('touchstart', (e) => {
-   touchStartX = e.changedTouches[0].screenX;
-});
-
-box.addEventListener('touchend', (e) => {
-   touchEndX = e.changedTouches[0].screenX;
-   handleSwipeGesture();
-});
-
-function handleSwipeGesture() {
-   if (touchEndX < touchStartX) {
-       rotationAngle -= 60;
-       box.style.transform = `translateZ(-400px) rotateY(${rotationAngle}deg)`;
-   } else if (touchEndX > touchStartX) {
-       rotationAngle += 60;
-       box.style.transform = `translateZ(-400px) rotateY(${rotationAngle}deg)`;
-   }
-}
